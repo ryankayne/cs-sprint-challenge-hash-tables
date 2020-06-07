@@ -6,7 +6,19 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    d = {}
+    result = []
+
+    for x in files:
+        text = x.split("/")
+        if text[-1] not in d:
+            d[text[-1]] = [x]
+        else:
+            d[text[-1]].append(x)
+    for x in queries:
+        if x in d:
+            for y in d[x]:
+                result.append(y)
 
     return result
 
